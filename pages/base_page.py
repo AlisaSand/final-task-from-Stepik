@@ -18,3 +18,7 @@ class BasePage():
             return False
         return True
 
+    def is_url_correct(self):
+        self.browser.find_element(By.ID,"login_link" ).click()
+
+
