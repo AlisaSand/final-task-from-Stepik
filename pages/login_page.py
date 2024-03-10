@@ -1,16 +1,16 @@
 from .base_page import BasePage
 from .main_page import MainPage
-from .locators import MainPageLocators
+from .locators import MainPageLocators, LoginPageLocators
 
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
-        self.should_be_login_url()
-        self.should_be_login_form()
-        self.should_be_register_form()
+        self.should_be_login_url(self.browser)
+        self.should_be_login_form(self.browser)
+        self.should_be_register_form(self.browser)
 
     def should_be_login_url(self, browser):
-        link = MainPageLocators.LINK
+        link = LoginPageLocators.LINK
         page = MainPage(browser, link)
         page.open()
         page.go_to_login_page()
